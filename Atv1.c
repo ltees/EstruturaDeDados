@@ -17,6 +17,7 @@ typedef struct {
     char situacao[10];
 } Aluno;
 
+// funcao para ler os dados dos alunos a partir de um arquivo CSV
 int lerDados(Aluno alunos[]) {
     FILE *entrada;
     char nome_arquivo_entrada[] = "DadosEntrada.csv";
@@ -38,6 +39,7 @@ int lerDados(Aluno alunos[]) {
     return num_alunos;
 }
 
+// funcao para calcular a situacao (aprovado/reprovado) dos alunos com base nas notas
 void calcularSituacao(Aluno alunos[], int num_alunos) {
     for (int i = 0; i < num_alunos; i++) {
         alunos[i].media = (alunos[i].notas[0] + alunos[i].notas[1]) / 2;
@@ -48,6 +50,7 @@ void calcularSituacao(Aluno alunos[], int num_alunos) {
     }
 }
 
+// funcao para escrever a situacao final dos alunos em um arquivo CSV
 void escreverSituacao(Aluno alunos[], int num_alunos) {
     FILE *saida;
     char nome_arquivo_saida[] = "SituacaoFinal.csv";
